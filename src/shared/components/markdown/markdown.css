@@ -1,0 +1,30 @@
+.thon-ui-markdown {
+  @apply text-gray-700;
+}
+
+.thon-ui-markdown h2 {
+  @apply text-2xl
+    font-bold
+    my-8;
+}
+
+.thon-ui-markdown p {
+  @apply mb-3;
+}
+
+.thon-ui-markdown img {
+  @apply rounded-lg
+    mx-auto;
+}
+
+.thon-ui-markdown pre {
+  @apply bg-gray-200
+    rounded-md
+    my-4
+    p-4
+    text-gray-800;
+}
+
+.thon-ui-markdown a {
+  @apply text-blue-500;
+}
