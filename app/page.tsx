@@ -4,11 +4,10 @@ import { format } from 'date-fns';
 import Markdown from '../src/shared/components/markdown';
 import Link from 'next/link';
 
-const baseURL = 'https://www.tabnews.com.br/api/v1';
-const postsEndpoint = '/contents/guscsales';
-
 async function getLastPost() {
-  const postsResponse = await fetch(`${baseURL}${postsEndpoint}`);
+  const postsResponse = await fetch(
+    `${process.env.BLOG_PROVIDER_BASE_API}/contents/guscsales`
+  );
   let posts = (await postsResponse.json()) as Post[];
 
   posts = posts
@@ -26,7 +25,7 @@ async function getLastPost() {
   const [lastPostFromList] = posts;
 
   const lastPostResponse = await fetch(
-    `${baseURL}${postsEndpoint}/${lastPostFromList.slug}`
+    `${process.env.BLOG_PROVIDER_BASE_API}/contents/guscsales/${lastPostFromList.slug}`
   );
   const lastPost = (await lastPostResponse.json()) as Post;
 
@@ -49,7 +48,11 @@ export default async function Home() {
       <Text variant="sm" className="text-gray-500">
         {format(lastPost?.created_at, 'dd.MM.yyyy')} - Última Postagem...
       </Text>
-      <Text as="h1" variant="3xl" className="w-full lg:w-[35rem] mt-2 mb-12">
+      <Text
+        as="h1"
+        variant="2xl lg:3xl"
+        className="w-full lg:w-[35rem] mt-2 mb-12"
+      >
         {lastPost.title}
       </Text>
 
