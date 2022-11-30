@@ -12,7 +12,7 @@ async function getLastPost() {
   let posts = (await postsResponse.json()) as Post[];
 
   posts = posts
-    .filter((post) => post.title)
+    .filter((post) => !post['parent_id'])
     .map((post) => ({
       ...post,
       created_at: new Date(post.created_at),
@@ -62,7 +62,7 @@ export default async function Home() {
         `}
         />
         <Markdown
-          value={lastPost.body}
+          value={lastPost.body || ''}
           className="h-[59vh] overflow-hidden mb-6"
         />
       </div>
