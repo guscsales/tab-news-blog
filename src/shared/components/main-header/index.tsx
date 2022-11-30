@@ -1,6 +1,26 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Text } from 'thon-ui';
 import profilePicture from './assets/gustavo-sales-profile-picture.png';
+
+function NavigatorItem({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="py-2 px-3 rounded-lg hover:bg-gray-200 transition duration-200 ease-in-out"
+    >
+      <Text variant="sm" className="font-bold">
+        {children}
+      </Text>
+    </Link>
+  );
+}
 
 export default function MainHeader() {
   return (
@@ -39,6 +59,11 @@ export default function MainHeader() {
           <span>😁</span>
         </div>
       </div>
+
+      <nav className="flex gap-2 w-[18rem] lg:w-[20rem] mt-6">
+        <NavigatorItem href="/">Home</NavigatorItem>
+        <NavigatorItem href="/blog">Blog</NavigatorItem>
+      </nav>
     </header>
   );
 }
