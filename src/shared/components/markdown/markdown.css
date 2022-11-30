@@ -12,6 +12,10 @@
   @apply mb-3;
 }
 
+.thon-ui-markdown p img {
+  @apply mt-3;
+}
+
 .thon-ui-markdown img {
   @apply rounded-lg
     mx-auto;
@@ -22,9 +26,17 @@
     rounded-md
     my-4
     p-4
-    text-gray-800;
+    text-gray-800
+    overflow-x-auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .thon-ui-markdown a {
   @apply text-blue-500;
+}
+
+.thon-ui-markdown ul {
+  @apply flex
+    flex-col
+    gap-2;
 }

@@ -3,6 +3,7 @@ import { Post } from '../src/domains/posts/models/post';
 import { format } from 'date-fns';
 import Markdown from '../src/shared/components/markdown';
 import Link from 'next/link';
+import { PostDetail } from '../src/domains/posts/models/post-detail';
 
 async function getLastPost() {
   const postsResponse = await fetch(
@@ -27,7 +28,7 @@ async function getLastPost() {
   const lastPostResponse = await fetch(
     `${process.env.BLOG_PROVIDER_BASE_API}/contents/guscsales/${lastPostFromList.slug}`
   );
-  const lastPost = (await lastPostResponse.json()) as Post;
+  const lastPost = (await lastPostResponse.json()) as PostDetail;
 
   if (lastPost) {
     return { ...lastPost, created_at: new Date(lastPost.created_at) };
@@ -65,7 +66,7 @@ export default async function Home() {
         `}
         />
         <Markdown
-          value={lastPost.body || ''}
+          value={lastPost.body}
           className="h-[59vh] overflow-hidden mb-6"
         />
       </div>
