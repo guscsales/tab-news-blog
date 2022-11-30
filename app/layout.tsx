@@ -31,8 +31,7 @@ export default function RootLayout({ children }: Props) {
           rel="stylesheet"
         />
       </head>
-      {/* w-full lg:w-[26.5rem] xl:w-[34.25rem] */}
-      <body className="lg:grid lg:grid-cols-[26.5rem_1fr] xl:pl-[34.25rem]">
+      <body className="lg:grid lg:grid-flow-col xl:grid-flow-col xl:pl-[34.25rem] lg:min-h-[96vh]">
         <MainHeader />
         <main className="p-10">
           {children}
