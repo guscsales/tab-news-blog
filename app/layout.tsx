@@ -32,7 +32,7 @@ export default function RootLayout({ children }: Props) {
         />
       </head>
       {/* w-full lg:w-[26.5rem] xl:w-[34.25rem] */}
-      <body className="lg:grid lg:grid-cols-[26.5rem_1fr] xl:grid-cols-[34.25rem_1fr]">
+      <body className="lg:grid lg:grid-cols-[26.5rem_1fr] xl:pl-[34.25rem]">
         <MainHeader />
         <main className="p-10">
           {children}
