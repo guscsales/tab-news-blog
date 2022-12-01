@@ -25,7 +25,8 @@ export async function generateStaticParams() {
 
 async function getPost(slug: string) {
   const postResponse = await fetch(
-    `${process.env.BLOG_PROVIDER_BASE_API}/contents/guscsales/${slug}`
+    `${process.env.BLOG_PROVIDER_BASE_API}/contents/guscsales/${slug}`,
+    { next: { revalidate: 30 } }
   );
   const post = (await postResponse.json()) as PostDetail;
 

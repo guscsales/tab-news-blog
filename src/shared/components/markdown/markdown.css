@@ -8,6 +8,12 @@
     my-8;
 }
 
+.thon-ui-markdown h3 {
+  @apply text-xl
+    font-bold
+    my-8;
+}
+
 .thon-ui-markdown p {
   @apply mb-3;
 }
