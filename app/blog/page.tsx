@@ -4,7 +4,8 @@ import { Post } from '../../src/domains/posts/models/post';
 
 async function fetchPosts() {
   const postsResponse = await fetch(
-    `${process.env.BLOG_PROVIDER_BASE_API}/contents/guscsales`
+    `${process.env.BLOG_PROVIDER_BASE_API}/contents/guscsales`,
+    { next: { revalidate: 30 } }
   );
   let posts = (await postsResponse.json()) as Post[];
 
